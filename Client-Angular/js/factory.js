@@ -1,10 +1,10 @@
 myApp.factory('todosFactory', function($http) {
   /** https://docs.angularjs.org/guide/providers **/
-  var urlBase = 'http://mean-todo-app.herokuapp.com/api/todos';
+  var urlBase = 'http://localhost:3000';
   var _todosFactory = {};
 
   _todosFactory.getTodos = function() {
-    return $http.get(urlBase);
+      return $http.get(urlBase +'/api/v1/products');
   };
 
   _todosFactory.saveTodo = function(todo) {

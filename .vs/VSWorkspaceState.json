@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Client-Angular",
+    "\\Client-Angular\\js",
+    "\\Client-Angular\\partials",
+    "\\Server-RestAPI",
+    "\\Server-RestAPI\\config",
+    "\\Server-RestAPI\\middlewares",
+    "\\Server-RestAPI\\routes"
+  ],
+  "SelectedNode": "\\Client-Angular\\js\\app.js",
+  "PreviewInSolutionExplorer": false
+}
