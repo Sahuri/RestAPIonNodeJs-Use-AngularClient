@@ -1,8 +1,12 @@
-myApp.controller("HeaderCtrl", ['$scope', '$location',
-  function($scope, $location) {
+myApp.controller("HeaderCtrl", ['$scope', '$location','UserAuthFactory','AuthenticationFactory',
+  function($scope, $location,UserAuthFactory,AuthenticationFactory) {
     $scope.isActive = function(route) {
       return route === $location.path();
-    }
+      console.log(route);
+      }
+      $scope.logout = function () {
+      UserAuthFactory.logout();
+      }
   }
 ]);
 
@@ -10,6 +14,8 @@ myApp.controller("HomeCtrl", ['$scope',
   function($scope) {
     $scope.name = "Home Controller";
   }
+
+
 ]);
 
 myApp.controller("Page1Ctrl", ['$scope',
@@ -26,13 +32,13 @@ myApp.controller("Page2Ctrl", ['$scope',
   }
 ]);
 
-myApp.controller("Page3Ctrl", ['$scope', 'todosFactory',
-  function($scope, todosFactory) {
+myApp.controller("Page3Ctrl", ['$scope', 'dataFactory',
+  function($scope, dataFactory) {
     $scope.name = "Page3 Controller";
     $scope.todos = [];
 
     // Access the factory and get the latest Todos list
-    todosFactory.getTodos().then(function(data) {
+    dataFactory.getTodos().then(function(data) {
       $scope.todos = data.data;
     });
 

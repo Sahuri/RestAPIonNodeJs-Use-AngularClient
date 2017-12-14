@@ -18,7 +18,10 @@
         </li>
         <li ng-class="{active:isActive('/page3')}"><a ng-href="#/page3">Page 3 (Sample Factory)</a>
         </li>
+        <li ng-show="AuthenticationFactory.isLogged"><a ng-href="#" ng-click="logout()">Logout</a>
+        </li>
       </ul>
+      {{AuthenticationFactory.isLogged}}
     </div>
   </div>
 </div>

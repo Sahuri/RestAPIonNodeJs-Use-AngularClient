@@ -1,4 +1,4 @@
-var myApp = angular.module('client-angular', ['ngRoute']);
+var myApp = angular.module('app', ['ngRoute']);
 
 myApp.config(function ($routeProvider, $httpProvider) {
 
