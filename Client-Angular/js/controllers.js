@@ -7,6 +7,7 @@ myApp.controller("HeaderCtrl", ['$scope', '$location','UserAuthFactory','Authent
       $scope.logout = function () {
       UserAuthFactory.logout();
       }
+     
   }
 ]);
 
