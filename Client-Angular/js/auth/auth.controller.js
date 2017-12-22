@@ -7,7 +7,6 @@ $scope.user = {
 };
 
 $scope.respond_status={"status":0,"message": ""};
-$scope.res_message='';
 
 $scope.login = function() {
     
@@ -21,14 +20,12 @@ $scope.login = function() {
             $window.sessionStorage.token = data.token;
             $window.sessionStorage.user = data.user.username; // to fetch the user details on refresh
             $window.sessionStorage.userRole = data.user.role; // to fetch the user details on refresh
-            
             $location.path("/");
         }).error(function(status) {
-            $scope.res_message='Oops something went wrong!';
             $scope.respond_status=status;
         });
     } else {
-        $scope.res_message='Invalid credentials';
+            $scope.respond_status={"status":401,"message": "Oops something went wrong!"};;
         }
     };
 }]);

@@ -1,21 +1,27 @@
-<div class="container" ng-controller="Page2Ctrl">
+<div class="container" ng-controller="Page3Ctrl">
   <div class="page-header">
-    <h3>This is from {{ name }}</h3>
+      <h1>Demo Product List
+      </h1>
   </div>
-
-  <p class="lead">Demo a simple factory
-    <code>todosFactory</code> <a href="http://thejackalofjavascript.com/mean-stack-hands-on-tutorial" target="_blank">source</a>
-  </p>
-
-  <p class="lead">
-    <table class="table">
+    <table class="table table-bordered">
+        <thead>
+      <tr>
+        <th>No</td>
+        <th>Categories</td>
+        <th>Description</td>
+      </tr>
+        </thead>
+        <tbody>
       <tr ng-repeat="todo in todos">
-        <td><b>Todo</b> : {{todo.todo}}
+        <td>{{todo.id}}
         </td>
         <td>
-          <em>isCompleted</em>: {{todo.isCompleted}}</td>
+          {{todo.name}}
+        </td>
+     <td>
+        {{todo.desc}}
+     </td>
       </tr>
+    </tbody>
     </table>
-  </p>
-
 </div>

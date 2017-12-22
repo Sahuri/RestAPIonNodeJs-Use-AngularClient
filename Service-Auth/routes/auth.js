@@ -1,6 +1,4 @@
 var jwt = require('jwt-simple');
-var ldap = require('ldapjs');
-
 var auth = {
     login: function(req, res) {
         var username = req.body.username || '';
@@ -28,21 +26,34 @@ var auth = {
         }
     }
     ,validate: function(username, password) {
-        LDAPauth(username,password);
-        var dbUserObj = { // spoofing a userobject from the DB. 
-            name: '',
-            role: '',
-            username: '',
-            info:''
-        };
+        var dbUserObj =null;
+        if (username=='sahuri.dev' && password=='12345')
+        {
+            dbUserObj={ // spoofing a userobject from the DB. 
+                name: 'sahuri',
+                role: 'admin',
+                username: username
+            };    
+        }
         return dbUserObj;
     }
-    
+    ,validateUser: function(username) {
+        var dbUserObj =null;
+        if (username=='sahuri.dev')
+        {
+            dbUserObj={ // spoofing a userobject from the DB. 
+                name: 'sahuri',
+                role: 'admin',
+                username: username
+            };    
+        }
+            return dbUserObj;
+        }
 }
 
 // private method
 function genToken(user) {
-    var expires = expiresIn(0); // 7 days
+    var expires = expiresIn(1); // 7 days
     var token = jwt.encode({exp: expires}
         , require('../config/secret')());
     return {

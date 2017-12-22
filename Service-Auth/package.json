@@ -1,11 +1,11 @@
 {
-  "name": "server-rest",
+  "name": "service-auth",
   "version": "1.0.0",
   "description": "server REST API with securing",
   "main": "server.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "start": "node server.js"
+    "auth": "node server.js"
   },
   "author": "sahuri",
   "license": "ISC",
