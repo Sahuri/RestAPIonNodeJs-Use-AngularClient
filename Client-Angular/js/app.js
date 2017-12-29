@@ -40,6 +40,13 @@ myApp.config(function ($routeProvider, $httpProvider) {
               requiredLogin: true
           }
       })
+      .when('/page4', {
+        templateUrl: 'partials/page4.html',
+        controller: 'Page4Ctrl',
+        access: {
+            requiredLogin: true
+        }
+    })
       .otherwise({
           redirectTo: '/login'
         });

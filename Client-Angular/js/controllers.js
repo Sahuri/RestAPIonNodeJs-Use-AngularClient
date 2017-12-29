@@ -44,3 +44,20 @@ myApp.controller("Page3Ctrl", ['$scope', 'dataFactory',
 
   }
 ]);
+
+myApp.controller("Page4Ctrl", ['$scope',
+function($scope) {
+  var connection = $.connection('http://localhost:3002/signalr');
+
+  connection.error(function(error){
+      console.log(error);
+  });
+  connection.received(function (data) {
+      console.log('The time is ' + data.time.toString());
+  });
+
+  connection.start().done(function() {
+      console.log("connection started!");
+  });
+}
+]);

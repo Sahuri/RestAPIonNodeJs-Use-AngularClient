@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "~3.2.0",
     "angular": "~1.2.24",
-    "angular-route": "~1.2.23"
+    "angular-route": "~1.2.23",
+    "angular-signalr-hub": "^1.6.3"
   }
 }

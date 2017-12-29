@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var config = require('config');
 
 var app = express();
 app.use(logger('dev'));
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use('/', require('./routes'));
-
+console.log(config.util.getEnv('NODE_CONFIG'));
 // Start the server
 app.set('port', process.env.PORT|| 3001);
 var server = app.listen(app.get('port'), function() {
