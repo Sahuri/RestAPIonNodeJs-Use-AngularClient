@@ -13,7 +13,8 @@ $scope.login = function() {
     var username = $scope.user.username,
     password = $scope.user.password;
     if (username !== undefined && password !== undefined) {
-        UserAuthFactory.login(username, password).success(function(data) {
+        UserAuthFactory.login(username, password).then(function successCallback(response){
+            var data=response.data;
             AuthenticationFactory.isLogged = true;
             AuthenticationFactory.user = data.user.username;
             AuthenticationFactory.userRole = data.user.role;
@@ -21,7 +22,7 @@ $scope.login = function() {
             $window.sessionStorage.user = data.user.username; // to fetch the user details on refresh
             $window.sessionStorage.userRole = data.user.role; // to fetch the user details on refresh
             $location.path("/");
-        }).error(function(status) {
+        }, function errorCallback(status){
             $scope.respond_status=status;
         });
     } else {

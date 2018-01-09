@@ -12,13 +12,13 @@
       <ul class="nav navbar-nav">
         <li ng-class="{active:isActive('/')}"><a href="#">Home</a>
         </li>
-        <li ng-class="{active:isActive('/page1')}"><a ng-href="#/page1">Page 1 (Sample Directive)</a>
+        <li ng-class="{active:isActive('/page1')}"><a href="javascript:" ng-click="page1()">Page 1 (Sample Directive)</a>
         </li>
-        <li ng-class="{active:isActive('/page2')}"><a ng-href="#/page2">Page 2 (Sample Filter)</a>
+        <li ng-class="{active:isActive('/page2')}"><a href="javascript:" ng-click="page2()">Page 2 (Sample Filter)</a>
         </li>
-        <li ng-class="{active:isActive('/page3')}"><a ng-href="#/page3">Page 3 (Sample Factory)</a>
+        <li ng-class="{active:isActive('/page3')}"><a href="javascript:" ng-click="page3()">Page 3 (Sample Factory)</a>
         </li>
-        <li ng-class="{active:isActive('/page4')}"><a ng-href="#/page4">Page 4 (Sample SignalR)</a>
+        <li ng-class="{active:isActive('/page4')}"><a href="javascript:" ng-click="page4()">Page 4 (Sample Socket-io)</a>
         </li>
         <li><a href="javascript:" ng-click="logout()">Logout</a>
         </li>

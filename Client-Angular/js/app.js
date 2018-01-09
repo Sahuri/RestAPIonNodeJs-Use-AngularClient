@@ -1,4 +1,6 @@
-var myApp = angular.module('app', ['ngRoute']);
+'use strict';
+
+var myApp = angular.module('app', ['ngRoute','ngSanitize']);
 
 myApp.config(function ($routeProvider, $httpProvider) {
 

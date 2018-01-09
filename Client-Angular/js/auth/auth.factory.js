@@ -17,10 +17,17 @@ myApp.factory('AuthenticationFactory', function($window) {
 myApp.factory('UserAuthFactory', function($window, $location, $http, AuthenticationFactory) {
     return {
         login: function(username, password) {
-            return $http.post('http://localhost:3000/login', {
-            username: username,
-            password: password
-            });
+            var data={
+                username: username,
+                password: password
+                };
+            
+            var config= {  
+                method: 'POST',  
+                url: 'http://localhost:3000/login',   /*You URL to post*/
+                data: data   /*You data object/class to post*/
+            };
+            return $http(config);
         }
         ,logout: function() {
             if (AuthenticationFactory.isLogged) {

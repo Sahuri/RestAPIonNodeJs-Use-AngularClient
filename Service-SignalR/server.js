@@ -6,6 +6,8 @@ var signalR = SignalRJS();
 var app = express();
 app.use(signalR.createListener())
 app.use(express.static(__dirname));
+
+
 // Start the server
 app.set('port', process.env.PORT|| 3002);
 var server = app.listen(app.get('port'), function() {

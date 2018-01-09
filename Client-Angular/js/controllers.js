@@ -2,11 +2,27 @@ myApp.controller("HeaderCtrl", ['$scope', '$location','UserAuthFactory',
   function($scope, $location,UserAuthFactory) {
     $scope.isActive = function(route) {
       return route === $location.path();
-      }
+      };
+      
       $scope.logout = function () {
       UserAuthFactory.logout();
-      }
-     
+      };
+
+      $scope.page1 = function () {
+        $location.path('/page1');
+        };
+
+      $scope.page2 = function () {
+        $location.path('/page2');
+        };
+
+      $scope.page3 = function () {
+        $location.path('/page3');
+        };
+
+      $scope.page4 = function () {
+        $location.path('/page4');
+        };
   }
 ]);
 
@@ -14,7 +30,7 @@ myApp.controller("HomeCtrl", ['$scope',
   function($scope) {
     $scope.name = "Home Controller";
   }
-
+  
 
 ]);
 
@@ -45,19 +61,27 @@ myApp.controller("Page3Ctrl", ['$scope', 'dataFactory',
   }
 ]);
 
-myApp.controller("Page4Ctrl", ['$scope',
-function($scope) {
-  var connection = $.connection('http://localhost:3002/signalr');
+myApp.controller("Page4Ctrl", ['$scope','socket',
+function($scope,socket) {
 
-  connection.error(function(error){
-      console.log(error);
-  });
-  connection.received(function (data) {
-      console.log('The time is ' + data.time.toString());
+  $scope.future='';
+  $scope.chat_input;
+  $scope.keydown=function(){
+
+  };
+
+  socket.on('connect', function(data) {
+    socket.emit('join', 'Hello World from client');
   });
 
-  connection.start().done(function() {
-      console.log("connection started!");
+  socket.on('broad', function(data) {
+    $scope.future+=data+'<br/>';  
   });
+
+  $scope.submit=function(e){
+    var message = $scope.chat_input;
+    socket.emit('messages', message);
+};
+
 }
 ]);
