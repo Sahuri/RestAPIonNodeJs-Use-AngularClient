@@ -1,0 +1,10 @@
+/.vscode/*
+/Client-Angular/node_modules/*
+/Client-Angular4/node_modules/*
+/Client-ReactNative/node_modules/*
+/Service-Auth/node_modules/*
+/Service-Ldap/node_modules/*
+/Service-SignalR/node_modules/*
+/Service-SocketIO/bower_components/*
+/Service-SocketIO/node_modules/*
+
