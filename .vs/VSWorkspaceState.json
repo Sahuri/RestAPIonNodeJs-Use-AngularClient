@@ -1,20 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-<<<<<<< HEAD
     "\\Client-Angular",
     "\\Client-Angular\\js",
-=======
->>>>>>> master
     "\\Client-Angular\\partials",
     "\\Server-RestAPI",
     "\\Server-RestAPI\\config",
     "\\Server-RestAPI\\middlewares",
     "\\Server-RestAPI\\routes"
   ],
-<<<<<<< HEAD
   "SelectedNode": "\\Client-Angular\\js\\app.js",
-=======
->>>>>>> master
   "PreviewInSolutionExplorer": false
 }
