@@ -1,0 +1,24 @@
+{
+  "name": "service-signalr",
+  "version": "1.0.0",
+  "description": "Realtime handling",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"echo \\\\\\\"Error: no test specified\\\\\\\" && exit 1\"",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sahuri/RestAPIonNodeJs-Use-AngularClient.git"
+  },
+  "author": "huriezu21@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sahuri/RestAPIonNodeJs-Use-AngularClient/issues"
+  },
+  "homepage": "https://github.com/Sahuri/RestAPIonNodeJs-Use-AngularClient#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "signalrjs": "^0.2.2"
+  }
+}

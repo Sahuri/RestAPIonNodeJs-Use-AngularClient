@@ -1,0 +1,78 @@
+<div class="col-md-8 bg-login-fes no-padding">
+  <div id="wmsLoginSlide" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+          <div class="item active">
+              <img src="../../assets/images/bg1-login.jpg" alt="Slide1-FES" style="width:100%; height: auto">
+          </div>
+          <div class="item">
+              <img src="../../assets/images/bg3-login.jpg" alt="Slide3-FES" style="width:100%; height: auto">
+          </div>
+          <div class="item">
+              <img src="../../assets/images/bg2-login.jpg" alt="Slide2-FES" style="width:100%; height: auto">
+          </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#wmsLoginSlide" data-slide="prev">
+          <span class="fa fa-arrow-left arrow"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#wmsLoginSlide" data-slide="next">
+          <span class="fa fa-arrow-right arrow"></span>
+          <span class="sr-only">Next</span>
+      </a>
+
+  </div>
+</div>
+
+<div class="col-md-4 col-form-login center">
+
+  <img src="../../assets/images/sti-wms.png" class="logo-login">
+  <div class="apps-name-login">{{applicatioName}}</div>
+
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="loginUser($event)">
+      <div class="col-md-12 inptUsrPass field">
+          <input type="text" name="userID" id="userID" placeholder=" " formControlName='userName'>
+          <label for="userID">User Id</label>
+      </div>
+
+      <div class="col-md-12 inptUsrPass" *ngIf="!isFingerPrint">
+          <div class="option">
+              and <a class="link" (click)="tampilFingerPrint()">touch your finger</a> to the scanner
+              <br/> or enter your password
+          </div>
+
+          <div class="col-md-8 fieldPass no-padding">
+              <input type="password" name="password" id="password" placeholder=" "
+                     (keydown.enter)="clickLogin()" formControlName='userPassword'>
+              <label for="password">Password</label>
+          </div>
+
+          <span class="col-md-4 no-padding">
+                      <button type="submit" class="btn btn-login btn-block" (click)="onLogin()">
+                      <i class="fa fa-lock"></i> Sign in</button>
+              </span>
+      </div>
+
+      <div class="col-md-12 inptUsrPass" *ngIf="isFingerPrint">
+          <div class="option">
+              and touch your finger to the scanner <br/>
+              or <a class="link" (click)="tampilPassword()">enter your password</a>
+          </div>
+          <img class="icon-finger" src="../../assets/images/ligin-fingers.png">
+      </div>
+  </form>
+
+  <div class="footer-login-fes2">
+      <a class="copyright-login-fes2" href="http://www.sqrtechno.com">©{{years | date:'yyyy'}} - www.sqrtechno.com</a>
+  </div>
+
+</div>
