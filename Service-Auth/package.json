@@ -10,8 +10,9 @@
   "author": "sahuri",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
+    "activedirectory": "^0.7.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
     "jwt-simple": "^0.5.1",
     "morgan": "^1.8.2"
   }

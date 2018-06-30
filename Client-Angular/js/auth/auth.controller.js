@@ -2,7 +2,7 @@ myApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'UserAuthFactor
 function($scope, $window, $location, UserAuthFactory, AuthenticationFactory) {
 
 $scope.user = {
-    username: '',
+    userid: '',
     password: ''
 };
 
@@ -10,17 +10,15 @@ $scope.respond_status={"status":0,"message": ""};
 
 $scope.login = function() {
     
-    var username = $scope.user.username,
+    var userid = $scope.user.userid,
     password = $scope.user.password;
-    if (username !== undefined && password !== undefined) {
-        UserAuthFactory.login(username, password).then(function successCallback(response){
+    if (userid !== undefined && password !== undefined) {
+        UserAuthFactory.login(userid, password).then(function successCallback(response){
             var data=response.data;
             AuthenticationFactory.isLogged = true;
-            AuthenticationFactory.user = data.user.username;
-            AuthenticationFactory.userRole = data.user.role;
+            AuthenticationFactory.role = data.role;
             $window.sessionStorage.token = data.token;
-            $window.sessionStorage.user = data.user.username; // to fetch the user details on refresh
-            $window.sessionStorage.userRole = data.user.role; // to fetch the user details on refresh
+            $window.sessionStorage.role = data.role; 
             $location.path("/");
         }, function errorCallback(status){
             $scope.respond_status=status;

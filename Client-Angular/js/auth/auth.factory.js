@@ -2,11 +2,10 @@ myApp.factory('AuthenticationFactory', function($window) {
     var auth = {
         isLogged: false,
         check: function() {
-            if ($window.sessionStorage.token && $window.sessionStorage.user) {
+            if ($window.sessionStorage.token && $window.sessionStorage.role) {
                 this.isLogged = true;
             } else {
                 this.isLogged = false;
-                delete this.user;
             }
         }
     }
@@ -16,9 +15,9 @@ myApp.factory('AuthenticationFactory', function($window) {
     
 myApp.factory('UserAuthFactory', function($window, $location, $http, AuthenticationFactory) {
     return {
-        login: function(username, password) {
+        login: function(userid, password) {
             var data={
-                username: username,
+                userid: userid,
                 password: password
                 };
             
@@ -32,10 +31,10 @@ myApp.factory('UserAuthFactory', function($window, $location, $http, Authenticat
         ,logout: function() {
             if (AuthenticationFactory.isLogged) {
                 AuthenticationFactory.isLogged = false;
-                delete AuthenticationFactory.user;
+                //delete AuthenticationFactory.user;
                 delete AuthenticationFactory.userRole;
                 delete $window.sessionStorage.token;
-                delete $window.sessionStorage.user;
+                //delete $window.sessionStorage.user;
                 delete $window.sessionStorage.userRole;
                 $location.path("/login");
             }
@@ -49,7 +48,7 @@ return {
             config.headers = config.headers || {};
             if ($window.sessionStorage.token) {
                 config.headers['X-Access-Token'] = $window.sessionStorage.token;
-                config.headers['X-Key'] = $window.sessionStorage.user;
+                //config.headers['X-Key'] = $window.sessionStorage.user;
                 config.headers['Content-Type'] = "application/json";
             }
             return config || $q.when(config);
